@@ -19,4 +19,7 @@ Route::get('/', function () {
 Route::get('/region', function () {
     return view('region');
 });
+Route::get('/obyekt', function () {
+    return view('obyekt');
+});
 

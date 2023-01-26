@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create('obyekts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('region_id');
+            $table->string('city_id');
+            $table->string('phone');
+            $table->string('status');
+            $table->string('start');
+            $table->string('finish');
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('obyekts');
     }
 };

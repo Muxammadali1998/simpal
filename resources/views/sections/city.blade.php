@@ -13,7 +13,7 @@
                     </div>
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                            <a href="">obyekt1</a> <a href="">obyekt1</a> <a href="">obyekt1</a>
+                            <a href="/obyekt"class="btn btn-outline-primary m-2"><i class="fa fa-home me-2"></i>obyekt1</a> <a href="/obyekt">obyekt1</a> <a href="/obyekt">obyekt1</a>
                         </div>
                         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                             Tempor et kasd accusam duo et dolor no accusam dolore, dolor sed voluptua duo no, sit et stet lorem dolor ipsum tempor consetetur vero, consetetur est eos sit eirmod erat diam accusam sadipscing sit. Takimata erat ea eirmod tempor elitr dolore sadipscing kasd justo, elitr tempor sed eos sadipscing magna.
