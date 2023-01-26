@@ -63,18 +63,18 @@
                     {{-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
                         <div class="dropdown-menu bg-transparent border-0"> --}}
-                            <a href="" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Toshkent</a>
-                            <a href="" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Farg'ona</a>
-                            <a href="" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Andijon</a>
-                            <a href="" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Namangan</a>
-                            <a href="" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Jizzax</a>
-                            <a href="" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Guliston</a>
-                            <a href="" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Navoiy</a>
-                            <a href="" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Samarqand</a>
-                            <a href="" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Surxondaryo</a>
-                            <a href="" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Qashqadaryo</a>
-                            <a href="" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Buxoro</a>
-                            <a href="" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Xorazim</a>
+                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Toshkent</a>
+                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Farg'ona</a>
+                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Andijon</a>
+                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Namangan</a>
+                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Jizzax</a>
+                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Guliston</a>
+                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Navoiy</a>
+                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Samarqand</a>
+                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Surxondaryo</a>
+                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Qashqadaryo</a>
+                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Buxoro</a>
+                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Xorazim</a>
                         {{-- </div>
                     </div> --}}
                     {{-- <a href="widget.html" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i><i class="fa fa-th me-2"></i>Widgets</a>
