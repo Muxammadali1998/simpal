@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,13 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/region', function () {
-    return view('region');
-});
-Route::get('/obyekt', function () {
-    return view('obyekt');
-});
+Route::get('/',[SiteController::class, 'index']);
+Route::get('/region/{id}', [SiteController::class, 'region']);
+Route::get('/obyekt/{id}', [SiteController::class, 'obyekt']);
 

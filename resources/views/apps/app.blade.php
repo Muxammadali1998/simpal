@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="/img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,7 +50,7 @@
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <img class="rounded-circle" src="/img/user.jpg" alt="" style="width: 40px; height: 40px;">
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
@@ -59,24 +59,15 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    {{-- <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
-                        <div class="dropdown-menu bg-transparent border-0"> --}}
-                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Toshkent</a>
-                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Farg'ona</a>
-                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Andijon</a>
-                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Namangan</a>
-                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Jizzax</a>
-                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Guliston</a>
-                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Navoiy</a>
-                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Samarqand</a>
-                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Surxondaryo</a>
-                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Qashqadaryo</a>
-                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Buxoro</a>
-                            <a href="/region" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Xorazim</a>
-                        {{-- </div>
-                    </div> --}}
+                    <a href="/" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Viloyatlar</a>
+                        <div class="dropdown-menu bg-transparent border-0"> 
+                           @foreach ($regions as $region)
+                              <a href="/region/{{$region->id}}" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>{{$region->name}}</a>
+                           @endforeach
+                        </div>
+                    </div>
                     {{-- <a href="widget.html" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i><i class="fa fa-th me-2"></i>Widgets</a>
                     <a href="form.html" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i><i class="fa fa-keyboard me-2"></i>Forms</a>
                     <a href="table.html" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i><i class="fa fa-table me-2"></i>Tables</a>
@@ -112,7 +103,7 @@
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                            <img class="rounded-circle me-lg-2" src="/img/user.jpg" alt="" style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex">John Doe</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
