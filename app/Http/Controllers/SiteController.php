@@ -32,4 +32,13 @@ class SiteController extends Controller
         $working = $cities->where('status', 'true');
         return view('obyekt', compact('cities', 'working',"regions", 'objekt'));
     }
+    public function post(Request $request)
+    {
+        $obj = Obyekt::where('phone', $request->phone)->first();
+        if($request->key == 1){
+            $obj->status = true;
+        }elseif($request->key == 0){
+            $obj->status = true;
+        }
+    }
 }

@@ -26,7 +26,7 @@
                                         <td>{{$obj->city->name}}</td>
                                         <td>{{$obj->start}}</td>
                                         <td>{{$obj->finish}}</td>
-                                        <td><a class="btn btn-sm btn-info" href="">View</a></td>
+                                        <td><a class="btn btn-sm btn-info" href="/obyekt/{{$obj->id}}">View</a></td>
                                         <td><a class="btn btn-sm btn-danger" href="">Stop</a></td>
                                     </tr>
                                 @endforeach

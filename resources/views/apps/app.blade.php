@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>DASHMIN - Bootstrap Admin Template</title>
+    <title>Sim 077</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -31,7 +31,7 @@
     <link href="/css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body >
     <div class="container-xxl position-relative bg-white d-flex p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -46,7 +46,7 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DASHMIN</h3>
+                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>SIM 007</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -54,18 +54,22 @@
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0">Jhon Doe</h6>
+                        <h6 class="mb-0">{{auth()->user()->name}}</h6>
                         <span>Admin</span>
                     </div>
                 </div>
+                
                 <div class="navbar-nav w-100">
-                    <a href="/" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="/" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Bosh saxifa</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Viloyatlar</a>
                         <div class="dropdown-menu bg-transparent border-0"> 
                            @foreach ($regions as $region)
                               <a href="/region/{{$region->id}}" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>{{$region->name}}</a>
-                           @endforeach
+                           @endforeach 
+                           <a onclick="togglemodal()" style="background-color: greenyellow" class="nav-item nav-link"><i class="bi bi-plus"></i>    
+                            Viloyat qo'shish
+                           </a>                          
                         </div>
                     </div>
                     {{-- <a href="widget.html" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i><i class="fa fa-th me-2"></i>Widgets</a>
@@ -88,7 +92,7 @@
 
 
         <!-- Content Start -->
-        <div class="content">
+        <div class="content"  >
             <!-- Navbar Start -->
             <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
                 <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
@@ -104,17 +108,94 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="/img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
+                            <span class="d-none d-lg-inline-flex">{{auth()->user()->name}}</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>My Profile</a>
-                            <a href="#" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Settings</a>
-                            <a href="#" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Log Out</a>
+                            <a href="/profile" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>My Profile</a>
+                            <a href="/logout" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Log Out</a>
                         </div>
                     </div>
                 </div>
             </nav>
             <!-- Navbar End -->
+
+            
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Viloyat qo'shish</h5>
+              
+                    </div>
+                    <div class="modal-body">
+                      <form action="/user" method="POST" onsubmit="closeit()">
+                        <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Viloyat nomi</label>
+                          <input type="text" class="form-control" placeholder="Farg'ona" id="recipient-name">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" onclick="closeit()"  class="btn btn-secondary" data-dismiss="modal">Yopish</button>
+                          <button type="submit" class="btn btn-primary">Saqlash</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <script>
+                let modalme = document.getElementById('exampleModal');
+
+                function togglemodal(){
+                    modalme.classList.add("show");
+                    console.log(modalme.classList)
+                    modalme.style.display = 'block'
+                }
+                function closeit(){
+                    modalme.classList.remove("show");
+                    modalme.style.display = 'none'
+
+                }
+            </script>
+            {{-- add city --}}
+            <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">SHaxar qo'shish</h5>
+              
+                    </div>
+                    <div class="modal-body">
+                      <form action="/user" method="POST" onsubmit="closeit()">
+                        <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Shaxar nomi</label>
+                          <input type="text" class="form-control" placeholder="Farg'ona" id="recipient-name">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" onclick="closeit2()"  class="btn btn-secondary" data-dismiss="modal">Yopish</button>
+                          <button type="submit" class="btn btn-primary">Saqlash</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <script>
+                let modalme2 = document.getElementById('exampleModal2');
+
+                function togglemodal2(){
+                    modalme2.classList.add("show");
+                    console.log(modalme.classList)
+                    modalme2.style.display = 'block'
+                }
+                function closeit2(){
+                    modalme2.classList.remove("show");
+                    modalme2.style.display = 'none';
+        
+
+                }
+            </script>
+
 
                 @yield('content')
 
@@ -123,14 +204,14 @@
                 <div class="bg-light rounded-top p-4">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
-                            &copy; <a href="#">Your Site Name</a>, All Right Reserved. 
+                            &copy; <a href="#">SIM 007</a>, All Right Reserved. 
                         </div>
-                        <div class="col-12 col-sm-6 text-center text-sm-end">
+                        {{-- <div class="col-12 col-sm-6 text-center text-sm-end">
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                             Designed By <a href="https://htmlcodex.com">HTML Codex</a>
                         </br>
                         Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -155,6 +236,11 @@
     <script src="/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Template Javascript -->
+    <script>    
+       $('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+      </script>
     <script src="/js/main.js"></script>
 </body>
 

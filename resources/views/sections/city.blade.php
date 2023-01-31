@@ -6,32 +6,17 @@
                 <div class="d-flex align-items-start">
                     <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         @foreach ($cities as $key=>$city)
-                            @if ($key == 0)
-                            <button class="nav-link active" id="v-pills-home-tab{{$key}}" data-bs-toggle="pill" data-bs-target="#v-pills-home{{$key}}" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">{{$city->name}}</button>
-                            
-                            @else
-                                
-                            <button class="nav-link " id="v-pills-home-tab{{$key}}" data-bs-toggle="pill" data-bs-target="#v-pills-home{{$key}}" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">{{$city->name}}</button>
-                            @endif
+                            <button class="nav-link {{ $key == 0 ? "active" : '';}}" id="v-pills-home-tab{{$key}}" data-bs-toggle="pill" data-bs-target="#v-pills-home{{$key}}" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">{{$city->name}}</button>
                         @endforeach
+                        <button class="nav-link"  onclick="togglemodal2()"><i class="bi bi-plus"></i>Shahar qo'shish</button>
                     </div>
                     <div class="tab-content" id="v-pills-tabContent">
                         @foreach ($cities as $key=>$city)
-
-                            @if ($key == 0)
-                            <div class="tab-pane fade active show " id="v-pills-home{{$key}}" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                            <div class="tab-pane fade active {{ $key == 0 ? " show" : '';}} " id="v-pills-home{{$key}}" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                 @foreach ($city->obyektlar as $obj)
                                 <a href="/obyekt/{{$obj->id}}"class="btn btn-outline-primary m-2"><i class="fa fa-home me-2"></i>{{$obj->name}}</a> 
                                 @endforeach
                             </div>
-                            @else
-                                <div class="tab-pane fade " id="v-pills-home{{$key}}" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                    @foreach ($city->obyektlar as $obj)
-                                    <a href="/obyekt/{{$obj->id}}"class="btn btn-outline-primary m-2"><i class="fa fa-home me-2"></i>{{$obj->name}}</a> 
-                                    @endforeach
-                                </div>
-                            @endif
-                        
                         @endforeach
                     </div>
                 </div>
