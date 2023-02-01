@@ -166,7 +166,15 @@
               
                     </div>
                     <div class="modal-body">
-                      <form action="/user" method="POST" onsubmit="closeit()">
+                      <form action="{{ route ('city.store') }}" method="POST" onsubmit="closeit()">
+                        <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Viloyat</label>
+                          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                            @foreach ($regions as $item)
+                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                            @endforeach
+                           </select>
+                        </div>
                         <div class="form-group">
                           <label for="recipient-name" class="col-form-label">Shaxar nomi</label>
                           <input type="text" class="form-control" placeholder="Farg'ona" id="recipient-name">

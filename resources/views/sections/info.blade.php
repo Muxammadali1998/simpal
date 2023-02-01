@@ -6,7 +6,7 @@
                             <i class="fa fa-chart-line fa-3x text-primary"></i>
                             <div class="ms-3">
                                 <p class="mb-2">{{$card1}}</p>
-                                <h6 class="mb-0">{{ isset($objekt)? $objekt->status? "Ishlamoqda" : "O'chiq" : count($cities). "ta" ;}}</h6>
+                                <h6 class="mb-0">{{ isset($objekt)? $objekt->status? "Ishlamoqda" : "O'chiq" : count($cities). "ta" }}</h6>
                             </div>
                         </div>
                     </div>
@@ -15,7 +15,7 @@
                             <i class="fa fa-chart-bar fa-3x text-primary"></i>
                             <div class="ms-3">
                                 <p class="mb-2">{{$card2}}</p>
-                                <h6 class="mb-0">{{ isset($objekt)? '00' : count($working). " ta";}} </h6>
+                                <h6 class="mb-0">{{ isset($objekt)? '00' : count($working). " ta"}} </h6>
                             </div>
                         </div>
                     </div>

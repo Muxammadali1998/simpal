@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiteController;
+use App\Models\Site\City;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/',[SiteController::class, 'index'])->name('home');
     Route::get('/region/{id}', [SiteController::class, 'region']);
     Route::get('/obyekt/{id}', [SiteController::class, 'obyekt']);
+    Route::resource('/city', City::class);
 });
 
 require __DIR__.'/auth.php';

@@ -5,15 +5,18 @@
                 <div class="bg-light rounded h-100 p-4">
                     <h6 class="mb-4">Boshqaruv</h6>
                     <div class="m-n2">
-                        <button type="button" class="btn btn-success m-2">Start</button>
-                        <button type="button" class="btn btn-danger m-2">Stop</button>
+                        @if ($objekt->status == true )
+                            <button type="button" class="btn btn-danger m-2">Stop</button>
+                        @else
+                            <button type="button" class="btn btn-success m-2">Start</button>
+                        @endif
                     </div>
                 </div>
              
             </div>
             <div class="col-sm-12 col-xl-6">
                 <div class="bg-light rounded h-100 p-4">
-                    <h6 class="mb-4">Input Group</h6>
+                    <h6 class="mb-4">Ishlash vaqti</h6>
                     <form action="">
     
     
