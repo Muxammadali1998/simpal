@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\CityController;
+use App\Http\Controllers\ObyektController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegionController;
 use App\Http\Controllers\SiteController;
-use App\Models\Site\City;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,8 +30,10 @@ Route::middleware('auth')->group(function () {
    
     Route::get('/',[SiteController::class, 'index'])->name('home');
     Route::get('/region/{id}', [SiteController::class, 'region']);
-    Route::get('/obyekt/{id}', [SiteController::class, 'obyekt']);
-    Route::resource('/city', City::class);
+    Route::get('/object/{id}', [SiteController::class, 'obyekt']);
+    Route::resource('/city', CityController::class);
+    Route::resource('/region', RegionController::class);
+    Route::apiResource('/obyekt', ObyektController::class);
 });
 
 require __DIR__.'/auth.php';

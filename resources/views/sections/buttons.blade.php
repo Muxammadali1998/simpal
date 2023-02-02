@@ -5,10 +5,10 @@
                 <div class="bg-light rounded h-100 p-4">
                     <h6 class="mb-4">Boshqaruv</h6>
                     <div class="m-n2">
-                        @if ($objekt->status == true )
-                            <button type="button" class="btn btn-danger m-2">Stop</button>
+                        @if ($objekt->status == 1 )
+                            <a href="{{ route('obyekt.show', $objekt->id) }}" type="button" class="btn btn-danger m-2">Stop</a>
                         @else
-                            <button type="button" class="btn btn-success m-2">Start</button>
+                        <a href="{{ route('obyekt.show', $objekt->id) }}" type="button" class="btn btn-success m-2">Start</a>
                         @endif
                     </div>
                 </div>

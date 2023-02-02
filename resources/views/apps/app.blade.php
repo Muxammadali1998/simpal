@@ -31,7 +31,7 @@
     <link href="/css/style.css" rel="stylesheet">
 </head>
 
-<body >
+<body>
     <div class="container-xxl position-relative bg-white d-flex p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -45,7 +45,7 @@
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
-                <a href="index.html" class="navbar-brand mx-4 mb-3">
+                <a href="/" class="navbar-brand mx-4 mb-3">
                     <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>SIM 007</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
@@ -66,11 +66,10 @@
                         <div class="dropdown-menu bg-transparent border-0"> 
                            @foreach ($regions as $region)
                             <div class="nav-item nav-link d-flex justify-content-between" >
-                                <a href="/region/{{$region->id}}" ><i class="far fa-file-alt me-2"></i>{{$region->name}}</a> <i onclick="editmodal('{{$region->name}}')" class="bi bi-pen "></i>
-
+                                <a href="/region/{{$region->id}}" ><i class="far fa-file-alt me-2"></i>{{$region->name}}</a> <i onclick="editmodal(`{{$region->name}}`)" class="bi bi-pen "></i>
                             </div>
                            @endforeach 
-                           <a onclick="togglemodal()" style="background-color: greenyellow" class="nav-item nav-link"><i class="bi bi-plus-circle"></i>   
+                           <a onclick="togglemodal()" style="background-color: rgb(14, 139, 62); color:rgb(239, 248, 255)" class="nav-item nav-link"><i class="bi bi-plus-circle"></i>   
                             Viloyat qo'shish
                            </a>                          
                         </div>
@@ -92,7 +91,7 @@
                     <i class="fa fa-bars"></i>
                 </a>
                 <form class="d-none d-md-flex ms-4">
-                    <input class="form-control border-0" type="search" placeholder="Search">
+                    <input required class="form-control border-0" type="search" placeholder="Search">
                 </form>
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
@@ -110,7 +109,7 @@
             <!-- Navbar End -->
 
             
-            <!-- Modal -->
+            <!-- Viloyat -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -119,10 +118,11 @@
               
                     </div>
                     <div class="modal-body">
-                      <form action="/user" method="POST" onsubmit="closeit()">
+                      <form action="{{ route('region.store') }}" method="POST" onsubmit="closeit()">
+                        @csrf
                         <div class="form-group">
                           <label for="recipient-name" class="col-form-label">Viloyat nomi</label>
-                          <input type="text" class="form-control" placeholder="Farg'ona" id="edit">
+                          <input required type="text" class="form-control" name="name" placeholder="Farg'ona" id="edit">
                         </div>
                         <div class="modal-footer">
                           <button type="button" onclick="closeit()"  class="btn btn-secondary" data-dismiss="modal">Yopish</button>
@@ -134,8 +134,8 @@
                 </div>
               </div>
 
-            {{-- add city --}}
-            <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            {{-- Shaxar --}}
+              <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -144,9 +144,10 @@
                     </div>
                     <div class="modal-body">
                       <form action="{{ route ('city.store') }}" method="POST" onsubmit="closeit()">
+                        @csrf
                         <div class="form-group">
                           <label for="recipient-name" class="col-form-label">Viloyat</label>
-                          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                          <select class="form-select form-select-lg mb-3" name="region_id" aria-label=".form-select-lg example">
                             @foreach ($regions as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                             @endforeach
@@ -154,7 +155,43 @@
                         </div>
                         <div class="form-group">
                           <label for="recipient-name" class="col-form-label">Shaxar nomi</label>
-                          <input type="text" class="form-control" placeholder="Farg'ona" id="edit2">
+                          <input required type="text" name="name" class="form-control" placeholder="Farg'ona" id="edit2">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" onclick="closeit()"  class="btn btn-secondary" data-dismiss="modal">Yopish</button>
+                          <button type="submit" class="btn btn-primary">Saqlash</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {{-- Obyekt --}}
+              <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Obyekt qo'shish</h5>
+              
+                    </div>
+                    <div class="modal-body">
+                      <form action="{{ route ('obyekt.store') }}" method="POST" onsubmit="closeit()">
+                        @csrf
+                        <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Shahar</label>
+                          <select class="form-select form-select-lg mb-3" name="city_id" aria-label=".form-select-lg example">
+                            @foreach ($cities as $item)
+                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                            @endforeach
+                           </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="recipient-name"  class="col-form-label">Obyekt nomi</label>
+                          <input required type="text" name="name" class="form-control" placeholder="Farg'ona" id="edit2">
+                        </div>
+                        <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Tel Raqami</label>
+                          <input required type="text" name="phone" class="form-control" placeholder="+998 00 1234567" id="edit2">
                         </div>
                         <div class="modal-footer">
                           <button type="button" onclick="closeit()"  class="btn btn-secondary" data-dismiss="modal">Yopish</button>
@@ -170,6 +207,8 @@
                             let inp = document.getElementById('edit');
                             let inp2 = document.getElementById('edit2');
                             let modalme2 = document.getElementById('exampleModal2');
+                            let inp3 = document.getElementById('edit3');
+                            let modalme3 = document.getElementById('exampleModal3');
                
                
                             function togglemodal2(){
@@ -181,6 +220,17 @@
                                 modalme2.classList.add("show");
                                 console.log(modalme.classList);
                                 inp.value = ok
+                                modalme2.style.display = 'block';
+                            }            
+                            function togglemodal3(){
+                                modalme3.classList.add("show");
+                                console.log(modalme.classList)
+                                modalme3.style.display = 'block'
+                            }            
+                            function editmodal3(ok3){
+                                modalme2.classList.add("show");
+                                console.log(modalme.classList);
+                                inp.value = ok3
                                 modalme2.style.display = 'block';
                             }            
                             function editmodal(av){
@@ -202,6 +252,8 @@
                                 modalme.style.display = 'none';
                                 modalme2.classList.remove("show");
                                 modalme2.style.display = 'none';
+                                modalme3.classList.remove("show");
+                                modalme3.style.display = 'none';
             
                             }
                         </script>
@@ -216,12 +268,6 @@
                         <div class="col-12 col-sm-6 text-center text-sm-start">
                             &copy; <a href="#">SIM 007</a>, All Right Reserved. 
                         </div>
-                        {{-- <div class="col-12 col-sm-6 text-center text-sm-end">
-                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
-                        </br>
-                        Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
-                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -248,8 +294,8 @@
     <!-- Template Javascript -->
     <script>    
        $('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
-})
+          $('#myInput').trigger('focus')
+        })
       </script>
     <script src="/js/main.js"></script>
 </body>

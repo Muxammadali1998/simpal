@@ -36,7 +36,8 @@ class ObyektController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Obyekt::create($request->all());
+        return back();
     }
 
     /**
@@ -47,7 +48,17 @@ class ObyektController extends Controller
      */
     public function show(Obyekt $obyekt)
     {
-        //
+        if($obyekt->status == false){
+            $obyekt->status = 1;
+            $obyekt->save();
+            return back();
+        }elseif($obyekt->status == 1){
+            $obyekt->status = 0;
+            $obyekt->save();
+            return back();
+        }else{
+            return back();
+        }
     }
 
     /**

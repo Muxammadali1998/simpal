@@ -35,7 +35,8 @@ class CityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        City::create($request->all());
+        return back();
     }
 
     /**
