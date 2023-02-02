@@ -65,26 +65,16 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Viloyatlar</a>
                         <div class="dropdown-menu bg-transparent border-0"> 
                            @foreach ($regions as $region)
-                              <a href="/region/{{$region->id}}" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>{{$region->name}}</a>
+                            <div class="nav-item nav-link d-flex justify-content-between" >
+                                <a href="/region/{{$region->id}}" ><i class="far fa-file-alt me-2"></i>{{$region->name}}</a> <i onclick="editmodal('{{$region->name}}')" class="bi bi-pen "></i>
+
+                            </div>
                            @endforeach 
-                           <a onclick="togglemodal()" style="background-color: greenyellow" class="nav-item nav-link"><i class="bi bi-plus"></i>    
+                           <a onclick="togglemodal()" style="background-color: greenyellow" class="nav-item nav-link"><i class="bi bi-plus-circle"></i>   
                             Viloyat qo'shish
                            </a>                          
                         </div>
                     </div>
-                    {{-- <a href="widget.html" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i><i class="fa fa-th me-2"></i>Widgets</a>
-                    <a href="form.html" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i><i class="fa fa-keyboard me-2"></i>Forms</a>
-                    <a href="table.html" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i><i class="fa fa-table me-2"></i>Tables</a>
-                    <a href="chart.html" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i><i class="fa fa-chart-bar me-2"></i>Charts</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="signin.html" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Sign In</a>
-                            <a href="signup.html" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Sign Up</a>
-                            <a href="404.html" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>404 Error</a>
-                            <a href="blank.html" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Blank Page</a>
-                        </div>
-                    </div> --}}
                 </div>
             </nav>
         </div>
@@ -132,7 +122,7 @@
                       <form action="/user" method="POST" onsubmit="closeit()">
                         <div class="form-group">
                           <label for="recipient-name" class="col-form-label">Viloyat nomi</label>
-                          <input type="text" class="form-control" placeholder="Farg'ona" id="recipient-name">
+                          <input type="text" class="form-control" placeholder="Farg'ona" id="edit">
                         </div>
                         <div class="modal-footer">
                           <button type="button" onclick="closeit()"  class="btn btn-secondary" data-dismiss="modal">Yopish</button>
@@ -143,20 +133,7 @@
                   </div>
                 </div>
               </div>
-            <script>
-                let modalme = document.getElementById('exampleModal');
 
-                function togglemodal(){
-                    modalme.classList.add("show");
-                    console.log(modalme.classList)
-                    modalme.style.display = 'block'
-                }
-                function closeit(){
-                    modalme.classList.remove("show");
-                    modalme.style.display = 'none'
-
-                }
-            </script>
             {{-- add city --}}
             <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -177,10 +154,10 @@
                         </div>
                         <div class="form-group">
                           <label for="recipient-name" class="col-form-label">Shaxar nomi</label>
-                          <input type="text" class="form-control" placeholder="Farg'ona" id="recipient-name">
+                          <input type="text" class="form-control" placeholder="Farg'ona" id="edit2">
                         </div>
                         <div class="modal-footer">
-                          <button type="button" onclick="closeit2()"  class="btn btn-secondary" data-dismiss="modal">Yopish</button>
+                          <button type="button" onclick="closeit()"  class="btn btn-secondary" data-dismiss="modal">Yopish</button>
                           <button type="submit" class="btn btn-primary">Saqlash</button>
                         </div>
                       </form>
@@ -189,20 +166,45 @@
                 </div>
               </div>
             <script>
-                let modalme2 = document.getElementById('exampleModal2');
+                            let modalme = document.getElementById('exampleModal');
+                            let inp = document.getElementById('edit');
+                            let inp2 = document.getElementById('edit2');
+                            let modalme2 = document.getElementById('exampleModal2');
+               
+               
+                            function togglemodal2(){
+                                modalme2.classList.add("show");
+                                console.log(modalme.classList)
+                                modalme2.style.display = 'block'
+                            }            
+                            function editmodal2(ok){
+                                modalme2.classList.add("show");
+                                console.log(modalme.classList);
+                                inp.value = ok
+                                modalme2.style.display = 'block';
+                            }            
+                            function editmodal(av){
+            
+                                console.log(av)
+                                modalme.classList.add("show");
+                                modalme.style.display = 'block';
+                                inp.value = av
+                            }
+                            function togglemodal(){
+                                modalme.classList.add("show");
+                                console.log(modalme.classList);
+                                modalme.style.display = 'block';
+                                inp.value = ''
 
-                function togglemodal2(){
-                    modalme2.classList.add("show");
-                    console.log(modalme.classList)
-                    modalme2.style.display = 'block'
-                }
-                function closeit2(){
-                    modalme2.classList.remove("show");
-                    modalme2.style.display = 'none';
-        
-
-                }
-            </script>
+                            }
+                            function closeit(){
+                                modalme.classList.remove("show");
+                                modalme.style.display = 'none';
+                                modalme2.classList.remove("show");
+                                modalme2.style.display = 'none';
+            
+                            }
+                        </script>
 
 
                 @yield('content')

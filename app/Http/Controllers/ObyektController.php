@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\On;
 use App\Models\Site\Obyekt;
 use Illuminate\Http\Request;
 
@@ -69,7 +70,9 @@ class ObyektController extends Controller
      */
     public function update(Request $request, Obyekt $obyekt)
     {
-        //
+        $obyekt->status = $request->status;
+        $obyekt->save();
+        event(new On());
     }
 
     /**
@@ -82,4 +85,11 @@ class ObyektController extends Controller
     {
         //
     }
+    public function last()
+    {
+        $post = Obyekt::orderBy('updeted_at', 'DESC')->first()->select('phone','status');
+
+        return response()->json($post);
+    }
+
 }
