@@ -66,10 +66,10 @@
                         <div class="dropdown-menu bg-transparent border-0"> 
                            @foreach ($regions as $region)
                             <div class="nav-item nav-link d-flex justify-content-between" >
-                                <a href="/region/{{$region->id}}" ><i class="far fa-file-alt me-2"></i>{{$region->name}}</a> <i onclick="editmodal(`{{$region->name}}`)" class="bi bi-pen "></i>
+                                <a href="/region/{{$region->id}}" ><i class="bi bi-geo-alt-fill"></i> {{$region->name}}</a>  <i onclick="editmodal(`{{$region->name}}`)" class="bi bi-pen "></i>
                             </div>
                            @endforeach 
-                           <a onclick="togglemodal()" style="background-color: rgb(14, 139, 62); color:rgb(239, 248, 255)" class="nav-item nav-link"><i class="bi bi-plus-circle"></i>   
+                           <a onclick="togglemodal()" style="background-color: rgb(14, 139, 62); color:rgb(239, 248, 255)" class="nav-item nav-link"><i style="color: #009cff" class="bi bi-plus-circle-fill"></i> 
                             Viloyat qo'shish
                            </a>                          
                         </div>

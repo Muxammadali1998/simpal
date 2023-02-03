@@ -14,14 +14,14 @@ class SiteController extends Controller
     {
         $regions = Region::all();
         $cities = Obyekt::all();
-        $working = $cities->where('status', 'true');
+        $working = $cities->where('status', '1');
         return view('index', compact('cities', 'working','regions'));
     }
     public function region($id)
     {
         $regions = Region::all();
         $cities = City::where('region_id',$id)->get();
-        $working = $cities->where('status', 'true');
+        $working = $cities->where('status', '1');
         return view('region', compact('cities', 'working','regions'));
     }
     public function obyekt($id)
@@ -29,16 +29,16 @@ class SiteController extends Controller
         $objekt = Obyekt::find($id);
         $regions = Region::all();
         $cities = Obyekt::where('city_id',$id);
-        $working = $cities->where('status', 'true');
+        $working = $cities->where('status', '1');
         return view('obyekt', compact('cities', 'working',"regions", 'objekt'));
     }
     public function post(Request $request)
     {
         $obj = Obyekt::where('phone', $request->phone)->first();
         if($request->key == 1){
-            $obj->status = true;
+            $obj->status = 1;
         }elseif($request->key == 0){
-            $obj->status = true;
+            $obj->status = 1;
         }
     }
 }

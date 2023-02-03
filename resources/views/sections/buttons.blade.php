@@ -6,9 +6,9 @@
                     <h6 class="mb-4">Boshqaruv</h6>
                     <div class="m-n2">
                         @if ($objekt->status == 1 )
-                            <a href="{{ route('obyekt.show', $objekt->id) }}" type="button" class="btn btn-danger m-2">Stop</a>
+                            <a href="{{ route('obyekt.show', $objekt->id) }}"  class="btn btn-danger m-2">Stop</a>
                         @else
-                        <a href="{{ route('obyekt.show', $objekt->id) }}" type="button" class="btn btn-success m-2">Start</a>
+                        <a href="{{ route('obyekt.show', $objekt->id) }}"  class="btn btn-success m-2">Start</a>
                         @endif
                     </div>
                 </div>
@@ -17,22 +17,22 @@
             <div class="col-sm-12 col-xl-6">
                 <div class="bg-light rounded h-100 p-4">
                     <h6 class="mb-4">Ishlash vaqti</h6>
-                    <form action="">
-    
-    
+                    <form action="{{ route('obyekt.update',$objekt->id) }}" method="POST">
+                        @method("PUT")
+                        @csrf
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="10:00"
-                            aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            aria-label="Recipient's username" aria-describedby="basic-addon2" name="start" >
                             <span class="input-group-text" id="basic-addon2">dan</span>
                         </div>
     
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="13:00"
-                            aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            aria-label="Recipient's username" aria-describedby="basic-addon2" name="finish" >
                             <span class="input-group-text" id="basic-addon2">gacha</span>
                         </div>
                         <div class="m-n2">
-                            <button type="button" class="btn btn-primary m-2">Saqlash</button>
+                            <button class="btn btn-primary m-2">Saqlash</button>
                         </div>
                     </form>
                 </div>

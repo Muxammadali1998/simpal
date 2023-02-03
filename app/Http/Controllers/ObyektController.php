@@ -81,9 +81,17 @@ class ObyektController extends Controller
      */
     public function update(Request $request, Obyekt $obyekt)
     {
-        $obyekt->status = $request->status;
-        $obyekt->save();
-        event(new On());
+        if (isset($request->start)) {
+            $obyekt->start = $request->start;
+            $obyekt->finish = $request->finish;
+            $obyekt->save();
+            return back();
+        }else{
+            $obyekt->status = $request->status;
+            $obyekt->save();
+            event(new On());
+            return back();
+        }
     }
 
     /**

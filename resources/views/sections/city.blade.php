@@ -6,8 +6,8 @@
                 <div class="d-flex align-items-start">
                     <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         @foreach ($cities as $key=>$city)
-                                    <button  class="nav-link {{ $key == 0 ? "active" : ''}} d-flex justify-content-between align-items-center" id="v-pills-home-tab{{$key}}" data-bs-toggle="pill" data-bs-target="#v-pills-home{{$key}}" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">{{$city->name}}
-                                         <i onclick="editmodal('{{$city->name}}')" style="background-color: white;" class="btn btn-square btn-outline-info m-2 bi bi-pen "></i>   </button>
+                                    <button   class="nav-link {{ $key == 0 ? "active" : ''}} d-flex justify-content-between align-items-center" id="v-pills-home-tab{{$key}}"   data-bs-toggle="pill" data-bs-target="#v-pills-home{{$key}}" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">  {{  $city->name}}
+                                         <i onclick="editmodal('{{$city->name}}')" style="background-color: white;" class="btn btn-sm-square btn-outline-info m-2 bi bi-pen "></i>   </button>
 
                         @endforeach
                         <button class="nav-link"  onclick="togglemodal2()" style="background-color: rgb(14, 139, 62); color:aliceblue"><i class="bi bi-plus-square-fill"></i>  Shahar qo'shish</button>
