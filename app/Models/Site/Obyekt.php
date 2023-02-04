@@ -2,6 +2,7 @@
 
 namespace App\Models\Site;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,7 +12,9 @@ class Obyekt extends Model
     protected $fillable = [
         'city_id',
         'name',
-        'phone'
+        'phone',
+        'work',
+        'on',
     ];
 
     public function city(){
