@@ -2,7 +2,7 @@
     <div class="row g-4">
         <div class="col-sm-12 col-xl-12">
             <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">Vertical Navs &amp; Tabs</h6>
+                <h6 class="mb-4">Shahar va Tumanlar</h6>
                 <div class="d-flex align-items-start">
                     <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         @foreach ($cities as $key=>$city)
@@ -18,7 +18,7 @@
                                 @foreach ($city->obyektlar as $obj)
                                 <a href="/object/{{$obj->id}}"class="btn btn-outline-primary m-2"><i class="bi bi-gear-wide-connected"></i>  {{$obj->name}}</a> 
                                 @endforeach
-                                <button href="#"class="btn btn-outline-primary m-2" onclick="togglemodal3()" style="background-color: rgb(14, 139, 62); color:aliceblue"><i class="bi bi-plus-square-fill"></i> Obyekt qo'shish</button> 
+                                <button class="btn btn-outline-primary m-2" onclick="togglemodal3()" style="background-color: rgb(14, 139, 62); color:aliceblue"><i class="bi bi-plus-square-fill"></i> Obyekt qo'shish</button> 
                             </div>
                         @endforeach
                     </div>

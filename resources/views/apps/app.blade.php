@@ -228,10 +228,10 @@
                                 modalme3.style.display = 'block'
                             }            
                             function editmodal3(ok3){
-                                modalme2.classList.add("show");
+                                modalme3.classList.add("show");
                                 console.log(modalme.classList);
                                 inp.value = ok3
-                                modalme2.style.display = 'block';
+                                modalme3.style.display = 'block';
                             }            
                             function editmodal(av){
             

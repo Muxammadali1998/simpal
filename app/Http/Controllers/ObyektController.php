@@ -50,11 +50,14 @@ class ObyektController extends Controller
      */
     public function show(Obyekt $obyekt)
     {
-        if($obyekt->status == false){
+        if($obyekt->status == 0){
             $obyekt->status = 1;
             $obyekt->save();
             return back();
         }elseif($obyekt->status == 1){
+            $time = time() - $obyekt->on;
+            $obyekt->on = 0;
+            $obyekt->work = $time;
             $obyekt->status = 0;
             $obyekt->save();
             return back();
