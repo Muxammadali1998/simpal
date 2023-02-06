@@ -6,6 +6,9 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Broadcasting\Channel;
+use Illuminate\Broadcasting\PresenceChannel;
+use Illuminate\Broadcasting\PrivateChannel;
 
 class On implements ShouldBroadcast
 {
@@ -20,11 +23,11 @@ class On implements ShouldBroadcast
 
   public function broadcastOn()
   {
-      return ['on'];
+    return new PrivateChannel('on.');
   }
 
   public function broadcastAs()
   {
-      return 'my-event';
+      return 'on';
   }
 }

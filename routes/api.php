@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\ObyektController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::post('/post',[SiteController::class,'post']);
 Route::post('/changestatus', [MessageController::class, 'changestatus']);
+Route::get('/last',[ObyektController::class ,'last']);

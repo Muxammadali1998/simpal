@@ -256,6 +256,11 @@
                                 modalme3.style.display = 'none';
             
                             }
+                            
+                            Echo.private(`on`)
+                            .listen('On', (e) => {
+                                console.log("listening");
+                            });
                         </script>
 
 
@@ -290,7 +295,7 @@
     <script src="/lib/tempusdominus/js/moment.min.js"></script>
     <script src="/lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
+    <script src="{{ asset('js/app')}}"></script>
     <!-- Template Javascript -->
     <script>    
        $('#myModal').on('shown.bs.modal', function () {

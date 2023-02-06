@@ -24,7 +24,7 @@ class MessageController extends Controller
         }else{
             $time = time() - $obj->on;
             $obj->on = 0;
-            $obj->work = $time;
+            $obj->work = $obj->work + $time;
             $obj->status = $request->body;
             $obj->save();
             return "off";

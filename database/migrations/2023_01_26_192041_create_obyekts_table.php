@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('city_id');
             $table->string('phone');
             $table->string('status')->default('0');
+            $table->string('on')->default('0');
             $table->string('start')->default("8:00");
             $table->string('finish')->default("10:00");
             $table->timestamps();
