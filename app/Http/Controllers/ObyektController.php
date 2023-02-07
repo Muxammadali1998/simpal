@@ -50,6 +50,8 @@ class ObyektController extends Controller
      */
     public function show(Obyekt $obyekt)
     {
+
+
         if($obyekt->status == 0){
             $obyekt->status = 1;
             $obyekt->save();

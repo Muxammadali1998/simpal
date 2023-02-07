@@ -14,7 +14,7 @@ class On implements ShouldBroadcast
 {
   use Dispatchable, InteractsWithSockets, SerializesModels;
 
-  public $message;
+  public $status;
 
   public function __construct()
   {
@@ -23,11 +23,11 @@ class On implements ShouldBroadcast
 
   public function broadcastOn()
   {
-    return new PrivateChannel('on.');
+    return new Channel('test');
   }
 
   public function broadcastAs()
   {
-      return 'on';
+      return 'test';
   }
 }

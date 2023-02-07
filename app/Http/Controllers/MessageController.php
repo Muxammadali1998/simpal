@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
+    public function test(){
+        broadcast(new On())->toOthers();
+
+        return true;
+    }
     public function changestatus(Request $request)
     {
         $obj = Obyekt::where('phone', $request->phone)->first();
