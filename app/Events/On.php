@@ -25,14 +25,12 @@ class On implements ShouldBroadcast
 
   public function broadcastOn()
   {
-    $post = Obyekt::orderBy('updated_at', 'DESC')->first();
-    $post->status = 9;
-    $post->save();
+
     return new Channel('test');
   }
 
   public function broadcastAs()
   {
-      return 'test';
+      return 'On';
   }
 }

@@ -57,11 +57,11 @@ class ObyektController extends Controller
             $obyekt->save();
             return back();
         }elseif($obyekt->status == 1){
-            // $time = time() - $obyekt->on;
-            // $obyekt->on = 0;
-            // $obyekt->work = $obyekt->work + $time;
-            // $obyekt->status = 0;
-            // $obyekt->save();
+            $time = time() - $obyekt->on;
+            $obyekt->on = 0;
+            $obyekt->work = $obyekt->work + $time;
+            $obyekt->status = 0;
+            $obyekt->save();
             event(new On());
             return back();
         }else{

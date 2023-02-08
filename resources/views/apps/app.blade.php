@@ -258,7 +258,7 @@
                                 modalme3.style.display = 'none';
             
                             }
-                            console.log("test");
+                          
 
 
                         </script>
