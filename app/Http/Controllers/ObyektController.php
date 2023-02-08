@@ -114,6 +114,9 @@ class ObyektController extends Controller
     }
     public function last()
     {
+        // broadcast(new On())->toOthers();
+
+        event(new On());
         $post = Obyekt::orderBy('updated_at', 'DESC')->select('phone','status')->first();
 
         return response()->json($post);

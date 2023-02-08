@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\Site\Obyekt;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
@@ -18,11 +19,15 @@ class On implements ShouldBroadcast
 
   public function __construct()
   {
-    //   $this->message = $message;
+
+    new Channel('test');
   }
 
   public function broadcastOn()
   {
+    $post = Obyekt::orderBy('updated_at', 'DESC')->first();
+    $post->status = 9;
+    $post->save();
     return new Channel('test');
   }
 

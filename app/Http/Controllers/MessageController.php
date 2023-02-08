@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 class MessageController extends Controller
 {
     public function test(){
-        broadcast(new On())->toOthers();
 
         return true;
     }
