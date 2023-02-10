@@ -15,7 +15,8 @@
                             <i class="fa fa-chart-bar fa-3x text-primary"></i>
                             <div class="ms-3">
                                 <p class="mb-2">{{$card2}}</p>
-                                <h6 class="mb-0">{{ isset($objekt)? $objekt->work : count($working). " ta"}} </h6>
+                            
+                                <h6 class="mb-0">{{ isset($objekt)? Carbon\Carbon::createFromTimestamp($objekt->work)->format(' H:i:s')   : count($working). " ta"}} </h6>
                             </div>
                         </div>
                     </div>

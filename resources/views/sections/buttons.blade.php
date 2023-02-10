@@ -19,7 +19,9 @@
                             <button onclick="editmodal3('{{ $objekt->id }}')" style="margin-right:5px" class="btn btn-success "><i class="bi bi-pen"></i></button>
                             @if ($objekt->status == 1 )
                             <a href="{{ route('obyekt.show', $objekt->id) }}"  class="btn btn-danger ">Stop</a>
-                            @else
+                            @elseif($objekt->status == 2)
+                            <a href="" class="btn btn-warning ">No soz</a>
+                            @else                            
                             <a href="{{ route('obyekt.show', $objekt->id) }}"  class="btn btn-primary ">Start</a>
                             @endif
                         </div>
@@ -35,16 +37,18 @@
                         @method("PUT")
                         @csrf
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="10:00"
+                            <input type="time" class="form-control" placeholder="10:00"
                             aria-label="Recipient's username" aria-describedby="basic-addon2" name="start" >
                             <span class="input-group-text" id="basic-addon2">dan</span>
                         </div>
     
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="13:00"
+                            <input type="time" class="form-control" placeholder="13:00"
                             aria-label="Recipient's username" aria-describedby="basic-addon2" name="finish" >
                             <span class="input-group-text" id="basic-addon2">gacha</span>
                         </div>
+    
+              
                         <div class="m-n2">
                             <button class="btn btn-primary m-2">Saqlash</button>
                         </div>
