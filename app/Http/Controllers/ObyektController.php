@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\Control;
 use App\Events\On;
 use App\Models\Site\Obyekt;
 use Illuminate\Http\Request;
@@ -27,7 +28,15 @@ class ObyektController extends Controller
      */
     public function create()
     {
-        //
+        $currentTime = Carbon::now();
+
+        $databaseTime = Obyekt::where('phone','+998907823396')->first();
+
+        if ($currentTime->eq($databaseTime->start)) {
+            event(new On());
+           
+        }
+
     }
 
     /**
@@ -114,11 +123,12 @@ class ObyektController extends Controller
     }
     public function last()
     {
-        // broadcast(new On())->toOthers();
 
-        event(new On());
+        //event(new On());
+        On::dispatch();
+        //event( new Control(12));
         $post = Obyekt::orderBy('updated_at', 'DESC')->select('phone','status')->first();
-
+        
         return response()->json($post);
     }
 

@@ -9,7 +9,13 @@ var pusher = new Pusher(import.meta.env.VITE_PUSHER_APP_KEY, {
     encrypted: true
   });
   
+  //var channel = pusher.subscribe("channel");
+  // channel.bind("Control", function() {
+  //   alert("Control ishladi")
+  //   // window.location.href = ""
+  // });
   var channel = pusher.subscribe("test");
-  channel.bind("On", function() {
-   alert("real time ishladi")
+  channel.bind("App\\Events\\On", function() {
+    alert("On ishladi")
+    // window.location.href = ""
   });

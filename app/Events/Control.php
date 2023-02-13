@@ -1,31 +1,28 @@
 <?php
-
 namespace App\Events;
-
 use Illuminate\Broadcasting\Channel;
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Broadcasting\PresenceChannel;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class On implements ShouldBroadcast
+class Control implements ShouldBroadcast
 {
   use Dispatchable, InteractsWithSockets, SerializesModels;
 
+  public $data;
 
-  public function __construct()
+  public function __construct($data)
   {
+      $this->data = $data;
   }
 
   public function broadcastOn()
   {
-    return new Channel('test');
+      return new Channel('channel');
   }
-
   public function broadcastAs()
   {
-      return 'On';
+      return 'Control';
   }
 }
