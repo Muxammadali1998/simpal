@@ -6,6 +6,7 @@ use App\Events\Control;
 use App\Events\On;
 use App\Models\Site\Obyekt;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class ObyektController extends Controller
 {
@@ -30,9 +31,10 @@ class ObyektController extends Controller
     {
         $currentTime = Carbon::now();
 
-        $databaseTime = Obyekt::where('phone','+998907823396')->first();
+        $post = Obyekt::orderBy('updated_at', 'DESC')->select('start')->first();
 
-        if ($currentTime->eq($databaseTime->start)) {
+        if ($currentTime->eq($post->start)) {
+            
             event(new On());
            
         }

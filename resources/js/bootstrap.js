@@ -15,7 +15,7 @@ var pusher = new Pusher(import.meta.env.VITE_PUSHER_APP_KEY, {
   //   // window.location.href = ""
   // });
   var channel = pusher.subscribe("test");
-  channel.bind("App\\Events\\On", function() {
+  channel.bind("On", function() {
     alert("On ishladi")
     // window.location.href = ""
   });

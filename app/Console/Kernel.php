@@ -2,8 +2,12 @@
 
 namespace App\Console;
 
+use App\Events\On;
+use App\Models\Site\Obyekt;
+use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Artisan;
 
 class Kernel extends ConsoleKernel
 {
@@ -15,7 +19,23 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+
+
+            $schedule->call(function () {
+           
+
+                $databaseTime = Obyekt::where('phone','+998907823396')->first();
+                $currentTime = Carbon::now();
+                $hour = $currentTime->hour;
+                $minute = $currentTime->minute;
+                $time = $hour . ':' . $minute;
+        
+                if ( $time >= $databaseTime->start) {
+                    event(new On());
+                   
+                }
+            })->everyFiveMinutes();
+
     }
 
     /**
