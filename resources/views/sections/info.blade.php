@@ -6,7 +6,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" fill="#009cff"  xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><path d="M482,224.603v24.688h-33.73v-71.405l-101.207,0.065v-34.722H271v-27h75.667v-30H167.5v30H241v27h-72.604v34.731h-35.654 v42.379h-74.93v61.538H30v-61.336H0v164.438h30v-73.102h27.812v72.324h86.216l37.654,41.57H448.27v-70.522H482v24.688h30V224.603 H482z M87.812,250.339h44.93v103.862h-44.93V250.339z M418.27,325.249v70.522H194.985l-32.243-35.597V207.96h35.654v-34.731h118.667 v34.741l101.207-0.065v71.386H482v45.959H418.27z"/></svg>
                             <div class="ms-3">
                                 <p class="mb-2">{{$card1}}</p>
-                                <h6 class="mb-0">{{ isset($objekt) ? $objekt->status == 1 ? "Ishlamoqda" : "O'chiq"  : count($cities). "ta" }}</h6>
+                                <h6 class="mb-0">{{ isset($objekt) ? $objekt->status == 1 ? 'Ishlamoqda' : "O'chiq"  : count($cities). 'ta' }}</h6>
                             </div>
                         </div>
                     </div>

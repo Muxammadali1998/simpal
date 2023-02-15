@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\Control;
 use App\Events\On;
 use App\Models\Site\Obyekt;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 
 class ObyektController extends Controller
 {
@@ -33,11 +32,13 @@ class ObyektController extends Controller
 
         $post = Obyekt::orderBy('updated_at', 'DESC')->select('start')->first();
 
+
         if ($currentTime->eq($post->start)) {
             
-            event(new On());
+           event(new On());
            
         }
+        
 
     }
 
@@ -126,9 +127,8 @@ class ObyektController extends Controller
     public function last()
     {
 
-        //event(new On());
-        On::dispatch();
-        //event( new Control(12));
+        event(new On());
+        // On::dispatch();
         $post = Obyekt::orderBy('updated_at', 'DESC')->select('phone','status')->first();
         
         return response()->json($post);

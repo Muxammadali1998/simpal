@@ -21,21 +21,19 @@ class Kernel extends ConsoleKernel
     {
 
 
-            $schedule->call(function () {
-           
+        $schedule->call(function () {
+            $currentTime = Carbon::now();
 
-                $databaseTime = Obyekt::where('phone','+998907823396')->first();
-                $currentTime = Carbon::now();
-                $hour = $currentTime->hour;
-                $minute = $currentTime->minute;
-                $time = $hour . ':' . $minute;
-        
-                if ( $time >= $databaseTime->start) {
-                    event(new On());
-                   
-                }
-            })->everyFiveMinutes();
+            $post = Obyekt::orderBy('updated_at', 'DESC')->select('start')->first();
+    
+            if ($currentTime->eq($post->start)) {
+                
+                event(new On());
+               
+            }
 
+            event(new On());
+        })->everyMinute();
     }
 
     /**
