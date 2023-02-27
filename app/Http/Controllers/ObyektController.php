@@ -69,9 +69,15 @@ class ObyektController extends Controller
             $obyekt->save();
             return back();
         }elseif($obyekt->status == 1){
-            $time = time() - $obyekt->on;
-            $obyekt->on = 0;
-            $obyekt->work = $obyekt->work + $time;
+            // $time = time() - $obyekt->on;
+            // $obyekt->on = 0;
+            
+            $t1 = Carbon::parse($obyekt->on);
+            $t2 = Carbon::now();
+            
+            $diff = $t1->diffInSeconds($t2);
+            $obyekt->work = $obyekt->work + $diff;
+        
             $obyekt->status = 0;
             $obyekt->save();
             event(new On());

@@ -16,7 +16,7 @@
                             <div class="ms-3">
                                 <p class="mb-2">{{$card2}}</p>
                             
-                                <h6 class="mb-0">{{ isset($objekt)? Carbon\Carbon::createFromTimestamp($objekt->work)->format(' H:i:s')   : count($working). " ta"}} </h6>
+                                <h6 class="mb-0">{{ isset($objekt)? floor($objekt->work/86400).' kun '.gmdate('H:i:s', $objekt->work)   : count($working). " ta"}} </h6>
                             </div>
                         </div>
                     </div>
