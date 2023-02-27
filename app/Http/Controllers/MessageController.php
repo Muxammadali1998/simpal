@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Site\obj;
+use App\Events\On;
+use App\Models\Site\Obyekt;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,7 @@ class MessageController extends Controller
 {
     public function changestatus(Request $request)
     {
-        $obj = obj::where('phone', $request->phone)->first();
+        $obj = Obyekt::where('phone', $request->phone)->first();
 
         if ($request->body == $obj->statu) {
             return true;
