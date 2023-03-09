@@ -33,6 +33,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/object/{id}', [SiteController::class, 'obyekt']);
     Route::resource('/city', CityController::class);
     Route::resource('/region', RegionController::class);
+    Route::post('/region/{id}', [RegionController::class, 'update']);
+    Route::post('/city/{id}', [CityController::class, 'update']);
     Route::apiResource('/obyekt', ObyektController::class);
 });
 

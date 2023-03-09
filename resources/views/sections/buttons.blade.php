@@ -16,7 +16,7 @@
                             <h6>Obyekt tel raqami:  {{ $objekt->phone }}</h6>
                         </div>
                         <div class="d-flex align-items-end w-100 justify-content-end">
-                            <button onclick="editmodal3('{{ $objekt->id }}')" style="margin-right:5px" class="btn btn-success "><i class="bi bi-pen"></i></button>
+                            <button onclick="editmodal3('{{ $objekt->name }}','{{ $objekt->id }}','{{ $objekt->phone }}')" style="margin-right:5px" class="btn btn-success "><i class="bi bi-pen"></i></button>
                             @if ($objekt->status == 1 )
                             <a href="{{ route('obyekt.show', $objekt->id) }}"  class="btn btn-danger ">Stop</a>
                             @elseif($objekt->status == 2)

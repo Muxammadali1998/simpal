@@ -68,9 +68,12 @@ class CityController extends Controller
      * @param  \App\Models\Site\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, City $city)
+    public function update(Request $request, $id)
     {
-        //
+        $region = City::find($id);
+        $region->name =$request->name;
+        $region->save();
+        return back();
     }
 
     /**
@@ -81,6 +84,7 @@ class CityController extends Controller
      */
     public function destroy(City $city)
     {
-        //
+        $city->delete();
+        return back();
     }
 }

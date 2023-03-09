@@ -56,9 +56,8 @@ class RegionController extends Controller
      * @param  \App\Models\Site\Region  $region
      * @return \Illuminate\Http\Response
      */
-    public function edit(Region $region)
+    public function edit(Region $region, Request $request)
     {
-        //
     }
 
     /**
@@ -68,9 +67,12 @@ class RegionController extends Controller
      * @param  \App\Models\Site\Region  $region
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Region $region)
+    public function update(Request $request, $id)
     {
-        //
+        $region = Region::find($id);
+        $region->name =$request->name;
+        $region->save();
+        return back();
     }
 
     /**
@@ -81,6 +83,7 @@ class RegionController extends Controller
      */
     public function destroy(Region $region)
     {
-        //
+        $region->delete();
+        return back();
     }
 }

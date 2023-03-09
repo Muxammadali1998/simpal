@@ -26,9 +26,11 @@ class SiteController extends Controller
     }
     public function obyekt($id)
     {
+    
         $objekt = Obyekt::find($id);
+
         $regions = Region::all();
-        $cities = Obyekt::where('city_id',$id);
+        $cities = City::where('region_id', $objekt->city->region->id )->get();
         $working = $cities->where('status', '1');
         return view('obyekt', compact('cities', 'working',"regions", 'objekt'));
     }
