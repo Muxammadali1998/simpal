@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/region', RegionController::class);
     Route::post('/region/{id}', [RegionController::class, 'update']);
     Route::post('/city/{id}', [CityController::class, 'update']);
+    Route::post('/obyekt/{id}', [ObyektController::class, 'edit']);
     Route::apiResource('/obyekt', ObyektController::class);
 });
 

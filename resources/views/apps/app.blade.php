@@ -207,6 +207,8 @@
                         @csrf
                         <div class="form-group">
                           <label for="recipient-name" class="col-form-label">Shahar</label>
+                 
+                          <input type="hidden" >
                           <select class="form-select form-select-lg mb-3" name="city_id" aria-label=".form-select-lg example">
                             @foreach ($cities as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -259,6 +261,9 @@
                                 modalme2.classList.add("show");
                                 console.log(modalme.classList)
                                 modalme2.style.display = 'block'
+                                elForm2.action = `/city`
+                                elForm2.method = "POST"
+                                DelDiv.style.display = 'none';
                             }            
                             function editmodal2(ok, id ){
                               modalme2.classList.add("show");
@@ -273,6 +278,10 @@
                                 modalme3.classList.add("show");
                                 console.log(modalme.classList)
                                 modalme3.style.display = 'block'
+                                inp.value = ''
+                                elForm3.action = `/obyekt`
+                                elForm3.method = "POST"
+                                DelDiv.style.display = 'none';
                             }            
                             function editmodal3(ok3 , id , p){
                                 modalme3.classList.add("show");

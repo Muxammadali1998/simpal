@@ -93,9 +93,11 @@ class ObyektController extends Controller
      * @param  \App\Models\Site\Obyekt  $obyekt
      * @return \Illuminate\Http\Response
      */
-    public function edit(Obyekt $obyekt)
+    public function edit($id, Request $request)
     {
-        //
+        $region = Obyekt::find($id);
+        $region->update($request->all());
+        return back();
     }
 
     /**
