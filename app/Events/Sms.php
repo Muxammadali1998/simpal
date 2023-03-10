@@ -10,7 +10,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class On implements ShouldBroadcast
+class Sms implements ShouldBroadcast
 {
   use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -21,11 +21,11 @@ class On implements ShouldBroadcast
 
   public function broadcastOn()
   {
-    return new Channel('check');
+    return new Channel('alert');
   }
 
   public function broadcastAs()
   {
-      return 'On';
+      return 'Sms';
   }
 }

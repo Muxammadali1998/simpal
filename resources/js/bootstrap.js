@@ -10,8 +10,8 @@ var pusher = new Pusher(import.meta.env.VITE_PUSHER_APP_KEY, {
   });
   
 
-  var channel = pusher.subscribe("test");
-  channel.bind("On", function() {
-    alert("On ishladi")
+  var channel = pusher.subscribe("alert");
+  channel.bind("Sms", function() {
+    alert("Sms keldi")
     // window.location.href = ""
   });

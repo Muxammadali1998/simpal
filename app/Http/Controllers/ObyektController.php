@@ -67,17 +67,13 @@ class ObyektController extends Controller
             $obyekt->status = 1;
             $obyekt->on = time();
             $obyekt->save();
+            event(new On());
             return back();
         }elseif($obyekt->status == 1){
-            // $time = time() - $obyekt->on;
-            // $obyekt->on = 0;
-            
-            $t1 = Carbon::parse($obyekt->on);
+            $t1 = Carbon::parse((int)$obyekt->on);
             $t2 = Carbon::now();
-            
             $diff = $t1->diffInSeconds($t2);
             $obyekt->work = $obyekt->work + $diff;
-        
             $obyekt->status = 0;
             $obyekt->save();
             event(new On());
@@ -117,7 +113,6 @@ class ObyektController extends Controller
         }else{
             $obyekt->status = $request->status;
             $obyekt->save();
-            event(new On());
             return back();
         }
     }
@@ -130,16 +125,9 @@ class ObyektController extends Controller
      */
     public function destroy(Obyekt $obyekt)
     {
-        //
+        $obyekt->delete();
+        return redirect('/');
     }
-    public function last()
-    {
 
-        event(new On());
-        // On::dispatch();
-        $post = Obyekt::orderBy('updated_at', 'DESC')->select('phone','status')->first();
-        
-        return response()->json($post);
-    }
 
 }
