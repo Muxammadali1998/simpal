@@ -183,7 +183,7 @@
                           <button type="submit" class="btn btn-primary">Saqlash</button>
                         </div>
                       </form>
-                      <div id="DelDiv" class="form__innner">
+                      <div id="DelDiv2" class="form__innner">
                         <form action="" id="del2" method="POST">
                           @csrf
                           @method('DELETE')
@@ -228,7 +228,7 @@
                           <button type="submit" class="btn btn-primary">Saqlash</button>
                         </div>
                       </form>
-                      <div id="DelDiv" class="form__innner">
+                      <div id="DelDiv3" class="form__innner">
                         <form action="" id="del3" method="POST">
                           @csrf
                           @method('DELETE')
@@ -256,6 +256,8 @@
                             let elForm2 = document.getElementById('form-action2');
                             let elForm3 = document.getElementById('form-action3');
                             let DelDiv = document.getElementById('DelDiv');
+                            let DelDiv2 = document.getElementById('DelDiv2');
+                            let DelDiv3 = document.getElementById('DelDiv3');
 
                             function togglemodal2(){
                                 modalme2.classList.add("show");
@@ -263,7 +265,7 @@
                                 modalme2.style.display = 'block'
                                 elForm2.action = `/city`
                                 elForm2.method = "POST"
-                                DelDiv.style.display = 'none';
+                                DelDiv2.style.display = 'none';
                             }            
                             function editmodal2(ok, id ){
                               modalme2.classList.add("show");
@@ -281,7 +283,7 @@
                                 inp.value = ''
                                 elForm3.action = `/obyekt`
                                 elForm3.method = "POST"
-                                DelDiv.style.display = 'none';
+                                DelDiv3.style.display = 'none';
                             }            
                             function editmodal3(ok3 , id , p){
                                 modalme3.classList.add("show");
